@@ -1,0 +1,50 @@
+Exercício 1 
+
+a) Começa com '0' ou '1' e pode ter 0 ou n '1' ou '0'. 
+b) Começa com '0' ou '1' e pode ter 0 ou n '0'. 
+c) Pode ser vazio ou ter várias sequências de '0011'. 
+d) Pode começar com vários '0' desde que tenha ao menos um '1' ou começar com '1', após esse '1' pode ter vários '0' ou '1'. 
+e) n Zeros, pelo menos um número 1, n Uns, pelo menos um número zero. 
+f) necessariamente inicia com zero, n zeros ou uns e necessariamente termina com zero. 
+g) começa com vazio ou zero e termina com vazio ou 1. 
+h) pode ser vazio, sempre que tiver "zero" precisa ter 2 ou mais, ou pode ter o comprimento de "n" uns. 
+i) n zeros ou n zeros concatenado com pelo menos 2 números 1 seguido de n uns ou 1 ou mais zeros terminados de 2 números 1 n vezes, por fim podendo terminar com vazio ou 1 ou mais zeros. 
+
+ 
+
+Exercício 2 
+
+• ^(a|b){3,}$ 
+• ^(a|b){0,3}$ 
+• ^((a|b){0,2}|(a|b){4,})$ 
+• ^((a|b)(a|b))*$ 
+• ^(a|b)((a|b)(a|b))*$ 
+• ^((a|b)(a|b)(a|b)(a|b))*$ 
+ 
+
+Exercícios do Livro 
+ 
+3.1.a - ^a*b*(ab|ba)a*b*c*$ 
+3.1.b - ^(?:[01]*1[01]{9})$ 
+3.1.c - ^(0*10*10*)*$ 
+ 
+3.2.a - ^(0*10*1)*0*$ 
+3.2.b - ^(1*01*01*01*01*0)*1*$ 
+
+3.3.a - ^(?!.*101)[01]*$  
+3.3.b - ^(?!(?:[^1]*1[^1]*1[^1]*1)[^1]*$)(?!(?:[^0]*0[^0]*0[^0]*0)[^0]*$)[01]*$ 
+
+3.4.a - essa expressão regular denota o conjunto de sequências que seguem um destes dois padrões: 
+Começa com um "1", seguido por um padrão de "00" seguido por zero ou mais "0" e finaliza com "1". Exemplos: "1001", "100001", "1000000001". 
+É vazia (não contém nenhum símbolo).
+
+3.4.b - Começa com qualquer número de "0"s, seguido por um "1", repetido zero ou mais vezes. Seguido pela sequência "000". Pode ter qualquer número de "0"s ou "1"s após o "000". 
+
+(0*1)*: Isso significa que a sequência pode começar com qualquer número (incluindo zero) de "0"s, seguido por um "1". Isso pode se repetir zero ou mais vezes, pode ter várias ocorrências de "0*1".
+
+000: Isso descreve a sequência exata "000". 
+
+(0+1)*: Isso indica que após a sequência "000", pode haver qualquer número (incluindo zero) de "0"s ou "1"s. 
+ 
+
+3.4.c - Pode começar com qualquer número de "0"s ou com "10", repetido zero ou mais vezes seguido ou não por qualquer número de 1's. 

@@ -1,0 +1,137 @@
+Gramáticas Regulares 
+
+ 
+
+01 - G = ( {S}, {a,b,c}, P, S ) 
+        P = { S -> aS | bS | cS | &} 
+	ER: ^(a|b|c)*$
+	GLUD
+
+02 - G = ( {S, A}, {a,b,c}, P, S ) 
+        P = { S -> aS | bS | cS } 
+	ER: ^(a|b|c){1,}$
+	GLUD
+
+03 - G = ( {S, A, B}, {a,b,c}, P, S ) 
+        P = { S -> aA | bA | cA 
+		A -> aB | bB | cB  
+		B -> a | b | c} 
+	ER: ^(a|b|c){3}$
+	GLUD
+
+04 - G = ( {S, A, B, C, D}, {a,b,c}, P, S )
+	P = { S -> aA | bA | cA | &
+		A -> aB | bB | cB | &
+		B -> aC | bC | cC | &
+		C -> aD | bD | cD
+		D -> aD | bD | cD | &
+	
+05 - G = ( {S, A, B, C, D}, {a,b,c}, P, S )
+	P = { S -> aA | bA | cA
+		A -> aB | bB | cB
+		B -> aC | bC | cC
+		C -> aD | bD | cD
+		D -> aD | bD | cD | &
+
+06 - G = ( {S, A, B, C}, {a,b,c}, P, S )
+	P = { S -> aA | bA | cA
+		A -> aB | bB | cB
+		B -> aC | bC | cC
+		C -> aC | bC | cC | &
+
+07 - G = ( {S, A}, {a,b,c}, P, S )
+	P = { S -> aA | bA | cA | &
+		A -> a | b | c | &
+
+08 - G = ( {S, A, B, C}, {a,b,c}, P, S )
+	P = { S -> aA | bA | cA | 
+		A -> aB | bB | cB | 
+		B -> aC | bC | cC |
+		C -> S | &
+
+09 - G = ( {S, A, B, C, D}, {a,b,c}, P, S )
+	P = { S -> aA | bA | cA 
+		A -> aB | bB | cB  
+		B -> aC | bC | cC 
+		C -> aD | bD | cD
+		D -> S | &
+
+10 - G = ( {S, A, B}, {a,b,c}, P, S )
+	P = { S -> aA | bA | cA | 
+		A -> aB | bB | cB | 
+		B -> S | &
+
+11 - G = ( {S, A, B}, {a,b,c}, P, S )
+	P = { S -> aA | bA | cA | 
+		A -> aB | bB | cB | &
+		B -> S 
+
+12 - G = ( {S, A}, {a,b,c}, P, S )
+	P = { S -> abbA 
+		A -> aA | bA | cA | &
+
+13 - G = ( {S, A, B, C}, {a,b,c}, P, S )
+	P = { S -> aA | bB | &
+		A -> bC | cC | &
+		B -> aC | bC | cC | &
+		C -> aC | bC | cC | &
+
+14 - G = ( {S}, {a,b,c}, P, S )
+	P = { S -> aS | bS | cS | bbb
+
+15 - G = ( {S, A, B, C}, {a,b,c}, P, S )
+	P = { S -> aS | bA | cS
+		A -> aS | bB | cS
+		B -> aS | bC | cS
+		C -> S | &
+
+16 - G = ( {S, A, B}, {a,b,c}, P, S )
+	P = { S -> aS | bA | cS | &
+		A -> aS | bB | cS &
+		B -> aS | bB | cS
+
+17 - G = ( {S, A}, {a,b,c}, P, S )
+	P = { S -> aA
+		A -> aA | bA | cA | c
+
+18 - G = ( {S, A, B, C}, {a,b,c}, P, S )
+	P = { S -> aA
+		A -> aA | bA | cB | &
+		B -> aA | bA | cC
+		C -> aA | bA | cB 
+
+19 - G = ( {S, A}, {a,b,c}, P, S )
+	P = { S -> bA | cA | c
+		A -> aA | bA | cA | c
+
+20 - G = ( {S, A}, {a,b,c}, P, S )
+	P = { S -> bA | cA 
+		A -> aA | bA | cA | a | b
+
+21 - G = ( {S, A, B, C}, {a,b,c}, P, S )
+	P = { S -> aS | bA | cS | &
+		A -> aA | bB | cA | &
+		B -> aB | bC | cB | &
+		C -> aC | cC | &
+
+22 - G = ( {S, A, B}, {a,b,c}, P, S )
+	P = { S -> aA | bS | cS
+		A -> aB | bA | cA
+		B -> aB | bB | cB | &
+
+23 - G = ( {S, A, B}, {a,b,c}, P, S )
+	P = { S -> aA | bS | cS
+		A -> aB | bA | cA
+		B -> aB | bB | cB | &
+		
+24 - G = ( {S, A, B}, {a,b,c}, P, S )
+	P = { S -> aA | bS | cS
+		A -> aB | bA | cA
+		B -> aB | bB | cB | &
+
+
+
+
+
+		
+
