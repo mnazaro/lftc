@@ -1,0 +1,145 @@
+html {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Mantenha 100% da altura do viewport */
+    background-color: #474747;
+    font-family: Arial, sans-serif;
+    margin: 0; /* Remova margens padrão do corpo */
+}
+
+div {
+    /* margin: auto; */
+    border: none;
+}
+
+canvas {
+    position: absolute;
+    margin: 5px;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px  10px 20px;
+    cursor: pointer;
+    /* margin-bottom: 15px; */
+}
+button:hover {
+    background-color: #0069d9;
+}
+
+.menuItem {
+    border: none;
+    padding: 5px;
+    font-size: 1rem;
+    background-color: #fafafa;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 15px;
+}
+
+.menuItem * {
+    padding: 5px;
+}
+
+#canvasDiv {
+    position: relative;
+    border-radius: 58px;
+    width: 80%;
+    height: 60%;
+    border: none;
+    display: flex;
+    justify-content: center; /* Centralize o conteúdo horizontalmente */
+    align-items: center; /* Centralize o conteúdo verticalmente */
+}
+
+#controlBar {
+    display: flex;
+    flex-direction: line;
+    padding: 10px;
+    margin-top: 10px;
+    width: 50%;
+    background-color: #252525;
+    color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    /*margin-bottom: 15px; /* Defina uma margem inferior para separá-lo dos outros elementos */
+    justify-content: space-between
+}
+
+#stringDiv, #voltar {
+    padding: 10px;
+    width: 50%;
+    background-color: #252525;
+    color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    align-items: center;
+    margin-top: 15px;
+}
+
+#inputDiv {
+    display: flex;
+    flex-direction: column;
+}
+
+#stringInputContainer {
+    flex: 1;
+    background-color: #474747;
+    color: white;
+}
+
+#stringInput {
+    width: auto;
+    padding: 5px; /* Adicione um preenchimento para melhor aparência */
+    margin: 5px;
+    border-radius: 4px;
+    border: none;
+    background-color: #474747;
+    color: white;
+}
+
+#currentString, #testStatus {
+    display: flex;
+}
+
+#currentString {
+    overflow-x: auto;
+}
+
+#controlBar > * {
+    display: flex;
+    flex-direction: line;
+    border: none;
+    margin: 0;
+}
+
+#stepLabel, #statusLabel, #stepDisplay, #set, #stringInput {
+    margin-left: 10px;
+    margin-right: 10px;
+    color: white;
+}
+
+#stepDisplay {
+    display: flex;
+    margin: auto;
+}
+
+#speedSelect{
+    margin-left: 10px;
+    margin-right: 10px;
+    color: white;
+    background-color: #474747;
+    border: none;
+    border-radius: 4px;
+    width: 50px;
+}

@@ -1,0 +1,216 @@
+let regraSelecionada = null;
+
+function selecionarRegra(regra) {
+  if (regraSelecionada === null) {
+    regraSelecionada = regra;
+    document.getElementById('gramatica').style.display = 'block';
+    document.getElementById('getgramatica').style.display = 'block';
+    document.getElementById('naoterminal0').focus();
+    document.querySelectorAll('.selectGL').forEach(button => {
+      button.disabled = true;
+    });
+    document.getElementById('producao0').addEventListener('keyup', function () {
+      if (regraSelecionada === 'GLUD') {
+        gramaticaUD('producao0');
+      } else if (regraSelecionada === 'GLUE') {
+        gramaticaUE('producao0');
+      }
+    });
+  }
+}
+
+// Função para quando a regra e uma Gramatica Linear Unitaria a Direita
+function gramaticaUD(id) {
+  let letra = document.getElementById(id).value;
+  if ((letra.length = 2)) {
+    document.getElementById(id).value =
+      letra.charAt(0) + letra.charAt(1).toUpperCase();
+  }
+}
+
+// Função para quando a regra e uma Gramatica Linear Unitaria a Esquerda
+function gramaticaUE(id) {
+  let letra = document.getElementById(id).value;
+  if ((letra.length = 2)) {
+    document.getElementById(id).value =
+      letra.charAt(0).toUpperCase() + letra.charAt(1);
+  }
+}
+
+// Função para criar uma nova div e adicionar ao container
+function addDiv(numero) {
+  const container = document.getElementById('gramatica');
+  const newInputnt = document.createElement('input');
+  const newInputt = document.createElement('input');
+  const newA = document.createElement('a');
+
+  newInputnt.id = `naoterminal${numero}`;
+  newInputnt.className = 'simgramnt';
+  newInputnt.type = 'text';
+  newInputnt.maxLength = '1';
+  newInputnt.placeholder = 'Não Terminal';
+
+  newA.text = '->';
+
+  newInputt.id = `producao${numero}`;
+  newInputt.className = 'simgramt';
+  newInputt.type = 'text';
+  newInputt.placeholder = 'Produção';
+
+  container.appendChild(newInputnt);
+  container.appendChild(newA);
+  container.appendChild(newInputt);
+
+  // Encontrar o primeiro campo de "Não Terminal" na nova div e focar nele
+  const newNonTerminalInput = container.querySelector('#naoterminal' + numero);
+  newNonTerminalInput.focus();
+  newInputt.addEventListener('keydown', verificarEnter); // Adicionar o evento de verificar se a tecla Enter foi pressionada
+  // Adicionar o evento de verificar se a entrada recebeu uma letra maiuscula
+  newInputnt.addEventListener('keyup', function () {
+    verificarMaiuscula(`naoterminal${numero}`);
+  });
+
+  if (regraSelecionada === 'GLUD') {
+    newInputt.addEventListener('keyup', function () {
+      gramaticaUD(`producao${numero}`);
+    });
+  } else if (regraSelecionada === 'GLUE') {
+    newInputt.addEventListener('keyup', function () {
+      gramaticaUE(`producao${numero}`);
+    });
+  }
+}
+
+let posicao = 1; // Variável para contar a posição da produção
+//Função para verificar se a tecla Enter foi pressionada
+function verificarEnter(event) {
+  if (event.key === 'Enter') {
+    addDiv(posicao);
+    posicao++;
+    event.preventDefault(); // Evitar a ação padrão (como submeter formulário)
+  }
+}
+
+// Verificação se a entrada recebeu uma letra maiuscula, caso não seja, a letra é transformada em maiuscula
+function verificarMaiuscula(id) {
+  let letra = document.getElementById(id).value;
+  if (letra === letra.toLowerCase()) {
+    document.getElementById(id).value = letra.toUpperCase();
+  }
+}
+//Adicionar o evento de verificar se a entrada recebeu uma letra maiuscula
+document.getElementById('naoterminal0').addEventListener('keyup', function () {
+  verificarMaiuscula('naoterminal0');
+});
+document
+  .getElementById('producao0')
+  .addEventListener('keydown', verificarEnter);
+
+//Vetores para armazenar as produções e os não terminais
+let gramatica = [];
+
+//Obtendo os naoTerminais atraves dos inputs
+function getGramatica() {
+  for (let i = 0; i < posicao; i++) {
+    let naoTerminal = document.getElementById(`naoterminal${i}`).value;
+    let producao = document.getElementById(`producao${i}`).value;
+    let naoTerminalExiste = false;
+    for (let j = 0; j < gramatica.length; j++) {
+      if (naoTerminal === gramatica[j][0]) {
+        gramatica[j][1].push(producao);
+        naoTerminalExiste = true;
+        break;
+      }
+    }
+
+    if (!naoTerminalExiste) {
+      gramatica.push([naoTerminal, [producao]]);
+    }
+  }
+  alert(gramatica);
+}
+
+//Função para testar a string, se ela for gramatica linear unitaria direita
+function testar() {
+  const string = document.getElementById('testarString').value;
+  let letra;
+  let naoTerminal = naoTerminais[0]; //Pegar o primeiro naoTerminal;
+  for (let i = 0; i < string.length; i++) {
+    letra = string.charAt(i);
+    //Verificar se essa letra esta associada ao naoTerminal na posição 0 do vetor naoTerminais
+    for (let j = 0; j < producoes.length; j++) {
+      if (naoTerminal === producoes[j][0]) {
+        if (letra === producoes[j][1].charAt(0)) {
+          //Se a letra for igual a producao,
+          naoTerminal = producoes[j][1].charAt(1); //O naoTerminal passa a ser o nao Terminal da producao
+
+          break;
+          break;
+        }
+      }
+    }
+  }
+}
+
+function testarString(gramatica, inputString) {
+  let naoTerminalAuxiliar = gramatica[0][0]; // Inicie com o primeiro não terminal
+  let resultado = true; // Inicie com resultado verdadeiro
+
+  for (let i = 0; i < inputString.length; i++) {
+    const caractere = inputString[i];
+
+    // Encontre o não terminal na posição 1 na matriz de gramática
+    const naoTerminal = gramatica.find(item => item[0] === naoTerminalAuxiliar);
+
+    if (naoTerminal) {
+      const producoes = naoTerminal[1];
+
+      // Verifique se o caractere está presente em uma das produções
+      const producaoEncontrada = producoes.find(producao =>
+        producao.includes(caractere)
+      );
+
+      if (producaoEncontrada) {
+        // Encontre o próximo caractere maiúsculo
+        const proximoCaractereMaiusculo = producaoEncontrada.match(/[A-Z]/);
+
+        if (proximoCaractereMaiusculo) {
+          naoTerminalAuxiliar = proximoCaractereMaiusculo[0];
+        } else {
+          resultado = true; // Se não houver próximo caractere maiúsculo, defina o resultado como true
+          break;
+        }
+      } else {
+        resultado = false; // Se o caractere não estiver presente nas produções, defina o resultado como falso
+        break;
+      }
+    } else {
+      resultado = false; // Se o não terminal auxiliar não for encontrado na matriz de gramática, defina o resultado como falso
+      break;
+    }
+  }
+
+  // Verifique se o último não terminal auxiliar tem produção vazia
+  if (resultado) {
+    const ultimoNaoTerminal = gramatica.find(
+      item => item[0] === naoTerminalAuxiliar
+    );
+    if (ultimoNaoTerminal && ultimoNaoTerminal[1].includes('')) {
+      resultado = true; // Se o último não terminal tiver produção vazia, mantenha o resultado como verdadeiro
+    } else {
+      resultado = false; // Caso contrário, defina o resultado como falso
+    }
+  }
+
+  return resultado;
+}
+
+function testokornot() {
+  const inputString = document.getElementById('testarString');
+  const resultado = testarString(gramatica, inputString.value);
+  if (resultado) {
+    document.getElementById('testarString').style.backgroundColor = '#007700';
+  } else {
+    document.getElementById('testarString').style.backgroundColor = '#a11917';
+  }
+}

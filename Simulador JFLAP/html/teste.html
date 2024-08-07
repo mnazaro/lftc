@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Gramática</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+
+      .panel {
+        border: 2px solid #ccc;
+        padding: 10px;
+        max-width: 400px;
+        margin: 0 auto;
+      }
+
+      .toolbar-button {
+        background-color: #0074d9;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        margin-right: 5px;
+        cursor: pointer;
+      }
+
+      .label {
+        font-weight: bold;
+      }
+
+      .derivation {
+        margin-top: 10px;
+        border: 1px solid #ddd;
+        padding: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="panel">
+      <h2>Gramática</h2>
+      <div class="toolbar">
+        <button class="toolbar-button">Teste Rápido</button>
+        <button class="toolbar-button">Testar Múltiplas Entradas</button>
+        <button class="toolbar-button">Converter para AF</button>
+      </div>
+      <p class="label">Derivações:</p>
+      <div class="derivation">
+        <label for="derivation1">Não Terminal:</label>
+        <input type="text" id="derivation1" />
+        <label for="production1">Produção:</label>
+        <input type="text" id="production1" />
+      </div>
+      <div class="derivation">
+        <label for="derivation2">Não Terminal:</label>
+        <input type="text" id="derivation2" />
+        <label for="production2">Produção:</label>
+        <input type="text" id="production2" />
+      </div>
+      <!-- Adicione mais derivações conforme necessário -->
+      <p>
+        * - Para Derivação que resulta em vazio basta deixar a string vazia.
+      </p>
+    </div>
+  </body>
+</html>

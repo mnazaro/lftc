@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <title>Simulador de Gramática</title>
+</head>
+
+<body id="fundo">
+  
+  <div id="container">
+    <a href="index.html" style="float: left;"><img src="../img/back.png" alt="Voltar" width = "25" height="25"></a>
+    <h1>Simulador de Gramática</h1>
+
+    <button class="selectGL" onclick="selecionarRegra('GLUD')">GLUD</button>
+    <button class="selectGL" onclick="selecionarRegra('GLUE')">GLUE</button>
+    <div id="gramatica" style="display: none;">
+      <input id='naoterminal0' class="simgramnt" type="text" maxlength="1" placeholder="Não Terminal" />
+      <a>-></a>
+      <input id='producao0' class="simgramt" type="text" maxlength="2" placeholder="Produção" />
+    </div>
+    <button id="getgramatica" style="display: none;" onclick="getGramatica()">Obter Gramatica</button>
+
+    <input type="text" id="testarString" placeholder="Testar String" />
+    <button onclick="testokornot()">Testar String</button>
+
+    <div id="resultado">
+      <!-- Área onde o resultado do teste da string será exibido -->
+    </div>
+  </div>
+  <script src="../js/scriptGR.js"></script>
+</body>
+
+</html>

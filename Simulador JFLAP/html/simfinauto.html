@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Simulador de Autômato Finito</title>
+    <link rel="stylesheet" href="../css/style-af.css">
+</head>
+
+<body>
+    <a href="index.html" style ="float: left;"><img src="../img/back.png" alt="Voltar" width = "25" height="25"></a>
+    <div id="canvasDiv"></div>
+
+    <div id="stringDiv">
+        <div id="currentString">
+            <label id="stepLabel">Entrada: </label>
+            <div id="stepDisplay"></div>
+        </div>
+        <div id="testStatus">
+            <label id="statusLabel">Status: </label>
+            <div id="statusDisplay"></div>
+        </div>
+        <div id="inputDiv">
+            <input type="text" id="stringInput">
+            <button type="button" id="set">String de Entrada</button>
+        </div>
+    </div>
+    <div id="controlBar">
+        <div id="fileDiv">
+            <button type="button" id="newButton">Novo AF</button>
+            <!-- <button type="button" id="saveButton">Save FA</button>
+            <button type="button" id="loadButton">Load FA</button> -->
+            <!-- <input type="file" id="fileInput" accept=".txt"> -->
+        </div>
+
+        <!-- <div id="stepDiv"> -->
+        <button type="button" id="step">Passo</button>
+        <div id="autoDiv">
+            <button type="button" id="autoButton">Automático</button>
+            <select name="Speed" id="speedSelect">
+                <option value="1">x 1</option>
+                <option value="2">x 2</option>
+                <option value="3">x 3</option>
+                <option value="4">x 4</option>
+                <option value="5">x 5</option>
+                <option value="10">x 10</option>
+                <option value="50">x 50</option>
+                <option value="100">x 100</option>
+            </select>
+        </div>
+        <button type="button" id="pauseButton"><img src="../img/pause.png" alt="pause" width = "25" height="25"></button>
+        <button type="button" id="resetButton"><img src="../img/reset.png" alt="reset" width = "25" height="25"></button>
+        <!-- </div> -->
+    </div>
+    
+
+    <script src="../js/AF/state.js"></script>
+    <script src="../js/AF/transition.js"></script>
+    <script src="../js/AF/fa.js"></script>
+    <script src="../js/AF/fa-scene.js"></script>
+    <script src="../js/AF/main.js"></script>
+</body>
+
+</html>

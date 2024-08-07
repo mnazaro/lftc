@@ -1,0 +1,145 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #474747;
+  flex-direction: column;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#index {
+  font-family: Arial, sans-serif;
+  background-color: #474747;
+  flex-direction: column;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.cabecalho {
+  align-self: top;
+}
+#container {
+  color: white;
+  background-color: #252525;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  width: 600px;
+  align-content: center;
+  align-items: center;
+}
+h1 {
+  color: #ffffff;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 20px;
+}
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+input {
+  color: #ffffff;
+  background-color: #525252;
+  width: 90%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+a:link,
+a:visited {
+  color: #ffffff;
+  text-decoration: none;
+}
+a:hover {
+  color: #aeaeae;
+  text-decoration: none;
+}
+.simgramnt {
+  color: #ffffff;
+  background-color: #525252;
+  width: 25%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+.simgramt {
+  color: #ffffff;
+  background-color: #525252;
+  width: 57%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+.textarea {
+  color: #ffffff;
+  background-color: #525252;
+  width: 90%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+button:hover {
+  background-color: #0056b3;
+}
+.selectGL {
+  margin-bottom: 15px;
+}
+#result {
+  margin-top: 15px;
+  font-weight: bold;
+}
+.input-true {
+  border: 1px solid #002e01;
+  background-color: #007700;
+}
+
+.input-false {
+  border: 1px solid #882927;
+  background-color: #a11917;
+}
+.menu-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+}
+
+.menu-item {
+  margin: 10px;
+  padding: 20px;
+  background-color: #007bff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  width: 200px;
+}
+
+.menu-item a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+.menu-item img {
+  max-width: 100px;
+}
